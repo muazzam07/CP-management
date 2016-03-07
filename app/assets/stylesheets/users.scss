@@ -1,0 +1,57 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notice {
+    color: #009999;
+    font-family: 'Arial';
+}
+
+.text_f {
+    border: 2px black;
+}
+
+h3 {
+    color: #009999;
+    font-family: 'Arial';
+}
+
+h1 {
+    color: #009999;
+    text-decoration: underline;
+    font-family: 'Arial';
+}
+
+.button5 {
+    font-weight: bold;
+    font-family: Arial;
+    background-color: white;
+    border: 2px solid #555555;
+    color: black;
+    padding: 10px 10px;
+    text-align: left;
+    display: inline-block;
+    font-size: 13px;
+    margin: 2px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button5:hover {
+    background-color: #555555;
+    color: white;
+}
+
+label {
+  display: block;
+  float: left;
+  width : 90px;
+  color: #009999;
+  font-family: 'Arial';
+}
+
+
+body {
+    background-image: url("http://meridianinc.ca/wp-content/themes/Lambo/images/background/blured-bg-6.png");
+}
