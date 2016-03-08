@@ -1,10 +1,10 @@
 %h3 Enter Login Details.
 = flash[:notice]
 = form_for(:session, url: login_path) do |f|
-    = f.label :username, 'Username'
+    = f.label :username, 'Username', :class => 'labels'
     = text_field :session, :username
     %br
-    = f.label :password, 'Password'
-    = text_field :session, :password
+    = f.label :password, 'Password', :class => 'labels'
+    = password_field :session, :password
     %br
     = submit_tag 'Login'

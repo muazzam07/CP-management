@@ -2,11 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.notice {
-    color: #009999;
-    font-family: 'Arial';
-}
-
 .text_f {
     border: 2px black;
 }
@@ -43,12 +38,34 @@ h1 {
     color: white;
 }
 
-label {
+label 
+{
   display: block;
   float: left;
   width : 90px;
   color: #009999;
   font-family: 'Arial';
+}
+
+.logout-button
+{
+    position:absolute;
+    transition: .5s ease;
+    top: 0%;
+    left: 95%;
+}
+
+.labels
+{
+    width: 110px;
+    font-weight: bold;
+}
+
+b
+{
+    color: #009999;
+    font-family: 'Arial';
+    font-weight: normal;
 }
 
 
