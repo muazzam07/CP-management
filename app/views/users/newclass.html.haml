@@ -6,7 +6,7 @@
   = text_field :class, :coursenum
   %br
   = label :class, 'Select Time', :class => 'labels'
-  = time_select :class, :time1,  {:default => {:hour => '00', :minute => '00'}}
+  = time_select :class, :time1, :default => {:hour => '00', :minute => '00'}
   %b to
   = time_select :class, :time2,  {:default => {:hour => '00', :minute => '00'}}
   %br

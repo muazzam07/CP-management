@@ -1,9 +1,22 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.select {
+   background: white;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
 
 .text_f {
     border: 2px black;
+}
+
+h2
+{
+    color: #009999;
+    font-family: 'Arial';
+    font-size: 15px;
 }
 
 h3 {

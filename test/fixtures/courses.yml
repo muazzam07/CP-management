@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  instructor: MyString
+  stime: 2016-03-23 15:57:58
+  etime: 2016-03-23 15:57:58
+  days: MyString
+  venue: MyString
+
+two:
+  code: MyString
+  instructor: MyString
+  stime: 2016-03-23 15:57:58
+  etime: 2016-03-23 15:57:58
+  days: MyString
+  venue: MyString

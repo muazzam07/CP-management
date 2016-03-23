@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root   'users#index'
-  get    'userpage'   => 'users#userpage'
-  get    'newclass'   => 'users#newclass'
-  put    'classadded' => 'users#classadded'
-  get    'login'      => 'sessions#new'
-  post   'login'      => 'sessions#create'
-  delete 'logout'     => 'sessions#destroy'
+  get    'userpage'     => 'users#userpage'
+  get    'manageCourse' => 'users#manageCourse'
+  put    'coursePage'   => 'users#coursePage'
+  get    'newclass'     => 'users#newclass'
+  put    'classadded'   => 'users#classadded'
+  get    'login'        => 'sessions#new'
+  post   'login'        => 'sessions#create'
+  delete 'logout'       => 'sessions#destroy'
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
