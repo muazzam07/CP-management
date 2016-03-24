@@ -1,5 +1,5 @@
 %h3 Enter Details.
-= link_to 'Logout', logout_path(:username), method: 'delete', :class => 'logout-button button5'
+= link_to 'Logout', logout_path, method: 'delete', :class => 'logout-button button5'
 = form_tag classadded_path, :method => :put do
 
   = label :class, 'Course Code', :class => 'labels'

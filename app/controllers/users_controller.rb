@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         @stime1 = params[:class]["time1(4i)"].to_s
         @stime2 = params[:class]["time1(5i)"].to_s
         @etime1 = params[:class]["time2(4i)"].to_s
-        @etime2 = params[:class]["time2(4i)"].to_s
+        @etime2 = params[:class]["time2(5i)"].to_s
         @venue = params[:class][:venue].to_s
         
         @start = @stime1 + ':' + @stime2
@@ -54,14 +54,25 @@ class UsersController < ApplicationController
     
     def coursePage
         @username = session[:username]
-        if session[:username].nil?
-            redirect_to login_path
-        end
         @courseSelect = params[:param_name]
-        @course = Course.find_by_code(@courseSelect)
-        @stime = @course.stime.to_s.split(' ')[1]
-        @etime = @course.etime.to_s.split(' ')[1]
+        if not @courseSelect
+            redirect_to manageCourse_path       
+        else
+            if session[:username].nil?
+                redirect_to login_path
+            end
+            @course = Course.find_by_code(@courseSelect)
+            @stime = @course.stime.to_s.split(' ')[1]
+            @etime = @course.etime.to_s.split(' ')[1]
+        end
         
+    end
+    
+    def delCourse
+        @course_code = params[:code]
+        @course = Course.find_by_code(@course_code)
+        @course.delete
+        redirect_to userpage_path
     end
 
 

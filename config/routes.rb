@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get    'userpage'     => 'users#userpage'
   get    'manageCourse' => 'users#manageCourse'
   put    'coursePage'   => 'users#coursePage'
+  get    'delCourse'    => 'users#delCourse'
   get    'newclass'     => 'users#newclass'
   put    'classadded'   => 'users#classadded'
   get    'login'        => 'sessions#new'
