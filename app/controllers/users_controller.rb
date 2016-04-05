@@ -11,14 +11,24 @@ class UsersController < ApplicationController
         if session[:username].nil?
             redirect_to login_path
         end
+        @ntce = params[:ntce]
+        if @ntce == '1'
+            flash[:notice] = 'Incomplete Details Provided.'
+        end
         @days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+        @editStatus = params[:editStatus]
+        @code = params[:code]
     end
+    
     def classadded
         if session[:username].nil?
             redirect_to login_path
         end
         @username = session[:username].to_s
-        @days = params[:days].keys
+        @days = params[:days]
+        if @days
+            @days = @days.keys
+        end
         @code = params[:class][:coursenum].to_s
         @stime1 = params[:class]["time1(4i)"].to_s
         @stime2 = params[:class]["time1(5i)"].to_s
@@ -32,11 +42,35 @@ class UsersController < ApplicationController
         @end.to_time
         
         @alldays = ""
-        for day in @days
-            @alldays = @alldays + day + ' '
+        if @days
+            for day in @days
+                @alldays = @alldays + day + ' '
+            end
         end
         
-        Course.create!(:code => @code, :instructor => @username, :stime => @start, :etime => @end, :days => @alldays, :venue => @venue)
+        @editStatus = params[:editStatus]
+        if @editStatus == 'True'
+            @c = Course.find_by_code(params[:code])
+            if @code != ''
+                @c.code = @code
+            elsif @days 
+                @c.days = @alldays
+            elsif @venue != ''
+                @c.venue = @venue
+            elsif @start.to_s != '00:00'
+                @c.stime = @start
+            elsif @end.to_s != '00:00'
+                @c.etime = @end
+            end
+            @c.save!
+        else
+            if @code == '' or not @days or @venue == '' or @start.to_s == '00:00' or @end.to_s == '00:00'
+                redirect_to newclass_path(:ntce => '1')
+                return
+            else
+                Course.create!(:code => @code, :instructor => @username, :stime => @start, :etime => @end, :days => @alldays, :venue => @venue)
+            end
+        end
         redirect_to userpage_path
     end
     
@@ -69,12 +103,44 @@ class UsersController < ApplicationController
     end
     
     def delCourse
+        if session[:username].nil?
+            redirect_to login_path
+        end
         @course_code = params[:code]
         @course = Course.find_by_code(@course_code)
         @course.delete
         redirect_to userpage_path
     end
-
+    
+    def seatingplan
+        if session[:username].nil?
+            redirect_to login_path
+        end
+        @code = params[:code]
+    end
+    
+    def addseatingplan
+        if session[:username].nil?
+            redirect_to login_path
+        end
+        @code = params[:code]
+        @file = params[:file]
+        puts @file
+        redirect_to userpage_path
+    end
+    
+    def markclass
+    end
+    
+    def managemarks
+    end
+    
+    def editmarks
+    end
+    
+    def editcomplete
+    
+    
 
 
 end

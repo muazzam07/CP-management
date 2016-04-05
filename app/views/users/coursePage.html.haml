@@ -8,5 +8,8 @@
 %h2 Venue      :: #{@course.venue}
 %br
 = link_to 'Delete This Course', delCourse_path(:code => @courseSelect), :class => 'button5'
-= link_to 'Add Seating Plan', manageCourse_path, :class => 'button5'
+= link_to 'Edit This Course', newclass_path(:editStatus => 'True', :code => @courseSelect), :class => 'button5'
+= link_to 'Add Seating Plan', seatingplan_path(:code => @courseSelect), :class => 'button5'
 = link_to 'Edit Seating Plan', manageCourse_path, :class => 'button5'
+= link_to 'Mark This Class', markclass_path, :class => 'button5'
+= link_to 'Manage Marks', managemarks_path, :class => 'button5'

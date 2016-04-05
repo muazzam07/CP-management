@@ -1,4 +1,4 @@
 %h3 Welcome #{@username} 
 = link_to 'Logout', logout_path, method: 'delete', :class => 'logout-button button5'
-= link_to 'Add a Course', newclass_path, :class => 'button5'
+= link_to 'Add a Course', newclass_path(:editStatus => 'False'), :class => 'button5'
 = link_to 'Manage a Course', manageCourse_path, :class => 'button5'
