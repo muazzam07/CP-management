@@ -2,10 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .select {
+   position:relative;
    background: white;
    height: 29px;
    overflow: hidden;
-   width: 240px;
+   width: 200px;
+   font-family: Arial;
+   font-weight: bold;
+   left: 0.3%;
 }
 
 .text_f {

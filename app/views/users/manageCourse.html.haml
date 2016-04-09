@@ -1,7 +1,0 @@
-%h3 Welcome #{@username}
-%h3 Select Course Code
-= form_tag coursePage_path, :method => :put do
-    = link_to 'Logout', logout_path, method: 'delete', :class => 'logout-button button5'
-    = select_tag :param_name, options_for_select(@names, params[:param_name]), :class => 'select'
-    %br
-    = submit_tag 'Submit', :class => 'button5'
