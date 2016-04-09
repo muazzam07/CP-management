@@ -2,9 +2,9 @@
 = flash[:notice]
 = form_for(:session, url: login_path) do |f|
     = f.label :username, 'Username', :class => 'labels'
-    = text_field :session, :username
+    = text_field :session, :username, :class => 'text_f'
     %br
     = f.label :password, 'Password', :class => 'labels'
-    = password_field :session, :password
+    = password_field :session, :password, :class => 'text_f'
     %br
-    = submit_tag 'Login'
+    = submit_tag 'Login', :class => 'button5'

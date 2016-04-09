@@ -83,7 +83,7 @@ class CourseController < ApplicationController
         @username = session[:username]
         @courseSelect = params[:param_name]
         if not @courseSelect
-            redirect_to manageCourse_path       
+            redirect_to users_course_managecourse_path       
         else
             if session[:username].nil?
                 redirect_to login_path
