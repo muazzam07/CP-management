@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   put       'users/course/coursepage', :to => 'course#coursepage'
   get       'users/course/delcourse', :to => 'course#delcourse'
   get       'users/course/seatingplan', :to => 'course#seatingplan'
-  get       'users/course/seatingplanadd', :to => 'course#seatingplanadd'
+  put       'users/course/seatingplanadd', :to => 'course#seatingplanadd'
   get       'users/course/manageseatingplan', :to => 'course#manageseatingplan'
   get       'users/course/editseatingplan', :to => 'course#editseatingplan'
   put       'users/course/editcomplete', :to => 'course#editcomplete'

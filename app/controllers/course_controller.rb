@@ -21,12 +21,12 @@ class CourseController < ApplicationController
         if @days
             @days = @days.keys
         end
-        @code = params[:class][:coursenum].to_s
-        @stime1 = params[:class]["time1(4i)"].to_s
-        @stime2 = params[:class]["time1(5i)"].to_s
-        @etime1 = params[:class]["time2(4i)"].to_s
-        @etime2 = params[:class]["time2(5i)"].to_s
-        @venue = params[:class][:venue].to_s
+        @code = params[:course][:coursecode].to_s
+        @stime1 = params[:course]["time1(4i)"].to_s
+        @stime2 = params[:course]["time1(5i)"].to_s
+        @etime1 = params[:course]["time2(4i)"].to_s
+        @etime2 = params[:course]["time2(5i)"].to_s
+        @venue = params[:course][:venue].to_s
         
         @start = @stime1 + ':' + @stime2
         @end = @etime1 + ':' + @etime2
@@ -58,12 +58,13 @@ class CourseController < ApplicationController
             @c.save!
         else
             if @code == '' or not @days or @venue == '' or @start.to_s == '00:00' or @end.to_s == '00:00'
-                redirect_to users_course_courseadd_path(:ntce => '1')
+                redirect_to users_course_new_path(:ntce => '1')
                 return
             else
                 Course.create!(:code => @code, :instructor => @username, :stime => @start, :etime => @end, :days => @alldays, :venue => @venue)
             end
         end
+        flash[:notice] = "Course Added"
         redirect_to userpage_path
     end
     
@@ -101,7 +102,7 @@ class CourseController < ApplicationController
         @course_code = params[:course_id]
         @course = Course.find_by_code(@course_code)
         @course.delete
-        redirect_to userpage_path
+        redirect_to userpage_path(:notice => 'Course Deleted')
     end
     
     def seatingplan
@@ -109,6 +110,9 @@ class CourseController < ApplicationController
             redirect_to login_path
         end
         @code = params[:course_id]
+        @course = Course.find_by_code(@code)
+        @students = []
+        
     end
     
     def seatingplanadd
