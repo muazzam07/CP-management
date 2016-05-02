@@ -8,16 +8,13 @@ Rails.application.routes.draw do
   get       'users/course/new', :to => 'course#new'
   put       'users/course/courseadd', :to => 'course#courseadd'
   get       'users/course/managecourse', :to => 'course#managecourse'
-  put       'users/course/coursepage', :to => 'course#coursepage'
+  get       'users/course/coursepage', :to => 'course#coursepage'
   get       'users/course/delcourse', :to => 'course#delcourse'
   get       'users/course/seatingplan', :to => 'course#seatingplan'
-  put       'users/course/seatingplanadd', :to => 'course#seatingplanadd'
   get       'users/course/manageseatingplan', :to => 'course#manageseatingplan'
   get       'users/course/editseatingplan', :to => 'course#editseatingplan'
-  put       'users/course/editcomplete', :to => 'course#editcomplete'
   get       'users/course/delseatingplan', :to => 'course#delseatingplan'
   get       'users/course/markclass', :to => 'course#markclass'
-  put       'users/course/markcomplete', :to => 'course#markcomplete'
   
   
   #get    'manageCourse' => 'users#manageCourse'

@@ -111,12 +111,17 @@ class CourseController < ApplicationController
         end
         @code = params[:course_id]
         @course = Course.find_by_code(@code)
-        @students = []
-        
-    end
-    
-    def seatingplanadd
-        redirect_to userpage_path
+        if @course
+            @test = @course.venue
+            @student_id = params[:roll_number].to_i
+            @student_seat = params[:id].to_s
+            @ven = @course.venue
+            if @student_id != 0
+                puts @ven
+                Auditorium.create!(:name => @ven, :seat => @student_seat, :roll_num => @student_id, :course => @course.code)
+                Student.create!(:roll_num => @student_id, :course => @course.code, :marks => 0)
+            end
+        end
     end
     
     def manageseatingplan
@@ -130,13 +135,15 @@ class CourseController < ApplicationController
             redirect_to login_path
         end
         @code = params[:course_id]
-    end
-    
-    def editcomplete
-        if session[:username].nil?
-            redirect_to login_path
+        @course = Course.find_by_code(@code)
+        if @course
+            @test = @course.venue
+            @student = Auditorium.where(:course => @course.code).where(:name => @test)
+            @e_hash = Hash.new
+            @student.each do |ele|
+                @e_hash[ele.seat] = ele.roll_num
+            end
         end
-        @code = params[:course_id]
     end
     
     def delseatingplan
@@ -144,6 +151,14 @@ class CourseController < ApplicationController
             redirect_to login_path
         end
         @code = params[:course_id]
+        @course = Course.find_by_code(@code)
+        if @course
+            @student = Auditorium.where(:course => @course.code).where(:name => @course.venue)
+            @student.each do |ele|
+                ele.destroy
+            end
+        end
+        redirect_to users_course_coursepage_path(:param_name => @code, :commit => "Submit")
     end
     
     def markclass
@@ -151,12 +166,18 @@ class CourseController < ApplicationController
             redirect_to login_path
         end
         @code = params[:course_id]
-    end
-    
-    def markcomplete
-        if session[:username].nil?
-            redirect_to login_path
+        @course = Course.find_by_code(@code)
+        if @course
+            @test = @course.venue
+            @student = Auditorium.where(:course => @course.code).where(:name => @course.venue)
+            @e_hash = Hash.new
+            @student.each do |ele|
+                @e_hash[ele.seat] = ele.roll_num
+            end
+            @student_seat = params[:id].to_s
+            @roll = @e_hash[@student_seat]
+            puts @roll.name
+            #check student roll number using auditorium then check his marks and add 1
         end
-        @code = params[:course_id]
     end
 end
