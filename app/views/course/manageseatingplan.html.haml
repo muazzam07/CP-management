@@ -1,0 +1,4 @@
+%h3 Edit or Delete an Existing Seating Plan.
+= link_to 'Logout', logout_path, method: 'delete', :class => 'logout-button button5'
+= link_to 'Edit Seating Plan', users_course_editseatingplan_path(:course_id => params[:course_id]), :class => 'button5'
+= link_to 'Delete Seating Plan', users_course_delseatingplan_path(:course_id => params[:course_id]), :class => 'button5'

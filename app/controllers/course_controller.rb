@@ -113,7 +113,7 @@ class CourseController < ApplicationController
         @course = Course.find_by_code(@code)
         if @course
             @test = @course.venue
-            @student_id = params[:roll_number].to_i
+            @student_id = params[:roll_number].to_s
             @student_seat = params[:id].to_s
             @ven = @course.venue
             if @student_id != 0
@@ -175,8 +175,9 @@ class CourseController < ApplicationController
                 @e_hash[ele.seat] = ele.roll_num
             end
             @student_seat = params[:id].to_s
-            @roll = @e_hash[@student_seat]
-            puts @roll.name
+            @roll = @e_hash[@student_seat].to_s
+            @s = Student.where(:roll_num => @roll, :course => @course.code)
+            puts @s.name
             #check student roll number using auditorium then check his marks and add 1
         end
     end

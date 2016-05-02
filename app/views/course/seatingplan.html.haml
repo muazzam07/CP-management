@@ -1,0 +1,80 @@
+= link_to 'Logout', logout_path, method: 'delete', :class => 'logout-button button5'
+%h3 Auditorium Seating Plan
+%html
+  %head
+    :css
+      button { height: 60px; width: 60px; font-size: 20pt }  %body
+    -if @test == "Auditorium A-2"
+      %h3 #{@test} 
+      %table#my{:align => "center"}
+        %tr
+          %td
+            %button#m1{:onclick => "move(this.id)"}
+          %td
+            %button#m2{:onclick => "move(this.id)"}
+          %td
+            %button#m3{:onclick => "move(this.id)"}
+          %td
+            %button#m4{:onclick => "move(this.id)"}
+          %td
+            %button#m5{:onclick => "move(this.id)"}
+          %td
+            %button#m6{:onclick => "move(this.id)"}
+          %td
+            %button#m7{:onclick => "move(this.id)"}
+          %td
+            %button#m8{:onclick => "move(this.id)"}
+          %td
+            %button#m9{:onclick => "move(this.id)"}
+          %td
+            %button#m10{:onclick => "move(this.id)"}
+          %td
+            %button#m11{:onclick => "move(this.id)"}
+          %td
+            %button#m12{:onclick => "move(this.id)"}
+          %td
+            %button#m13{:onclick => "move(this.id)"}
+        %tr
+          %td
+          %td
+            %button#m14{:onclick => "move(this.id)"}
+          %td
+            %button#m15{:onclick => "move(this.id)"}
+          %td
+            %button#m16{:onclick => "move(this.id)"}
+          %td
+            %button#m17{:onclick => "move(this.id)"}
+          %td
+            %button#m18{:onclick => "move(this.id)"}
+          %td
+            %button#m19{:onclick => "move(this.id)"}
+          %td
+            %button#m20{:onclick => "move(this.id)"}
+          %td
+            %button#m21{:onclick => "move(this.id)"}
+          %td
+            %button#m22{:onclick => "move(this.id)"}
+          %td
+            %button#m23{:onclick => "move(this.id)"}
+          %td
+            %button#m24{:onclick => "move(this.id)"}
+        %tr
+          %td
+          %td
+          %td
+          %td
+            %button#m25{:onclick => "move(this.id)"}
+          %td
+            %button#m26{:onclick => "move(this.id)"}
+          %td
+            %button#m27{:onclick => "move(this.id)"}
+          %td
+            %button#m28{:onclick => "move(this.id)"}
+          %td
+            %button#m29{:onclick => "move(this.id)"}
+          %td
+            %button#m30{:onclick => "move(this.id)"}
+          %td
+            %button#m31{:onclick => "move(this.id)"}
+      %script{:src => "seatingplan.js"}
+= link_to 'Done', users_course_coursepage_path(:param_name => @code, :commit => "Submit"), :class => 'button5'

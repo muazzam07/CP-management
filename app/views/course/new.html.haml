@@ -1,0 +1,22 @@
+%h3 Enter Details.
+= flash[:notice]
+= link_to 'Logout', logout_path, method: 'delete', :class => 'logout-button button5'
+= form_tag users_course_courseadd_path(:course_id => @code, :editStatus => @editStatus, :code => @code), :method => :put do
+
+  = label :course, 'Coursecode', :class => 'labels'
+  = text_field :course, :coursecode
+  %br
+  = label :course, 'Selecttime', :class => 'labels'
+  = time_select :course, :time1, :default => {:hour => '00', :minute => '00'}
+  %b to
+  = time_select :course, :time2,  {:default => {:hour => '00', :minute => '00'}}
+  %br
+  = label :course, 'Selectdays', :class => 'labels'
+  - @days.each do |day|
+    %b #{day}
+    = check_box_tag "days[#{day}]"
+  %br
+  = label :course, 'Selectvenue', :class => 'labels'
+  = select :course, :venue, ['','Auditorium A-2']
+  %br
+  = submit_tag 'Save'

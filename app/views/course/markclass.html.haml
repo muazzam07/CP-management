@@ -1,0 +1,79 @@
+= link_to 'Logout', logout_path, method: 'delete', :class => 'logout-button button5'
+%h3 Mark this Class for class participation (Click = +1 Mark)
+%html
+  %head
+    :css
+      button { height: 60px; width: 60px; font-size: 10pt }  %body
+    -if @test == "Auditorium A-2"
+      %table#my{:align => "center"}
+        %tr
+          %td
+            %button#m1{:onclick => "mark(this.id)"} #{@e_hash["m1"]}
+          %td
+            %button#m2{:onclick => "mark(this.id)"} #{@e_hash["m2"]}
+          %td
+            %button#m3{:onclick => "mark(this.id)"} #{@e_hash["m3"]}
+          %td
+            %button#m4{:onclick => "mark(this.id)"} #{@e_hash["m4"]}
+          %td
+            %button#m5{:onclick => "mark(this.id)"} #{@e_hash["m5"]}
+          %td
+            %button#m6{:onclick => "mark(this.id)"} #{@e_hash["m6"]}
+          %td
+            %button#m7{:onclick => "mark(this.id)"} #{@e_hash["m7"]}
+          %td
+            %button#m8{:onclick => "mark(this.id)"} #{@e_hash["m8"]}
+          %td
+            %button#m9{:onclick => "mark(this.id)"} #{@e_hash["m9"]}
+          %td
+            %button#m10{:onclick => "mark(this.id)"} #{@e_hash["m10"]}
+          %td
+            %button#m11{:onclick => "mark(this.id)"} #{@e_hash["m11"]}
+          %td
+            %button#m12{:onclick => "mark(this.id)"} #{@e_hash["m12"]}
+          %td
+            %button#m13{:onclick => "mark(this.id)"} #{@e_hash["m13"]}
+        %tr
+          %td
+          %td
+            %button#m14{:onclick => "mark(this.id)"} #{@e_hash["m14"]}
+          %td
+            %button#m15{:onclick => "mark(this.id)"} #{@e_hash["m15"]}
+          %td
+            %button#m16{:onclick => "mark(this.id)"} #{@e_hash["m16"]}
+          %td
+            %button#m17{:onclick => "mark(this.id)"} #{@e_hash["m17"]}
+          %td
+            %button#m18{:onclick => "mark(this.id)"} #{@e_hash["m18"]}
+          %td
+            %button#m19{:onclick => "mark(this.id)"} #{@e_hash["m19"]}
+          %td
+            %button#m20{:onclick => "mark(this.id)"} #{@e_hash["m20"]}
+          %td
+            %button#m21{:onclick => "mark(this.id)"} #{@e_hash["m21"]}
+          %td
+            %button#m22{:onclick => "mark(this.id)"} #{@e_hash["m22"]}
+          %td
+            %button#m23{:onclick => "mark(this.id)"} #{@e_hash["m23"]}
+          %td
+            %button#m24{:onclick => "mark(this.id)"} #{@e_hash["m24"]}
+        %tr
+          %td
+          %td
+          %td
+          %td
+            %button#m25{:onclick => "mark(this.id)"} #{@e_hash["m25"]}
+          %td
+            %button#m26{:onclick => "mark(this.id)"} #{@e_hash["m26"]}
+          %td
+            %button#m27{:onclick => "mark(this.id)"} #{@e_hash["m27"]}
+          %td 
+            %button#m28{:onclick => "mark(this.id)"} #{@e_hash["m28"]}
+          %td
+            %button#m29{:onclick => "mark(this.id)"} #{@e_hash["m29"]}
+          %td
+            %button#m30{:onclick => "mark(this.id)"} #{@e_hash["m30"]}
+          %td
+            %button#m31{:onclick => "mark(this.id)"} #{@e_hash["m31"]}
+      %script{:src => "seatingplan.js"}
+= link_to 'Done', users_course_coursepage_path(:param_name => @code, :commit => "Submit"), :class => 'button5'
