@@ -59,7 +59,6 @@ class CourseController < ApplicationController
         else
             if @code == '' or not @days or @venue == '' or @start.to_s == '00:00' or @end.to_s == '00:00'
                 redirect_to users_course_new_path(:ntce => '1')
-                return
             else
                 Course.create!(:code => @code, :instructor => @username, :stime => @start, :etime => @end, :days => @alldays, :venue => @venue)
             end
@@ -98,13 +97,13 @@ class CourseController < ApplicationController
     
     def delcourse
         if session[:username].nil?
-            redirect_to login_path
+            redirect_to login_path and return
         end
-        @course_code = params[:course_id]
-        @course = Course.find_by_code(@course_code)
-        @course.delete
-        #--
-        # redirect_to userpage_path(:notice => 'Course Deleted')
+            @course_code = params[:course_id]
+            @course = Course.find_by_code(@course_code)
+            @course.delete
+            #--
+            redirect_to userpage_path(:notice => 'Course Deleted') and return
     end
     
     def seatingplan
