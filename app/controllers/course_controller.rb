@@ -46,7 +46,7 @@ class CourseController < ApplicationController
             @c = Course.find_by_code(@id)
             if @code != ''
                 @c.code = @code
-            elsif @days 
+            elsif @days
                 @c.days = @alldays
             elsif @venue != ''
                 @c.venue = @venue
@@ -65,7 +65,8 @@ class CourseController < ApplicationController
             end
         end
         flash[:notice] = "Course Added"
-        redirect_to userpage_path
+        #----
+        # redirect_to userpage_path
     end
     
     def managecourse
@@ -102,7 +103,8 @@ class CourseController < ApplicationController
         @course_code = params[:course_id]
         @course = Course.find_by_code(@course_code)
         @course.delete
-        redirect_to userpage_path(:notice => 'Course Deleted')
+        #--
+        # redirect_to userpage_path(:notice => 'Course Deleted')
     end
     
     def seatingplan

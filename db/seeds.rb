@@ -6,3 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
     User.create!(:username => 'talha', :password => '123')
+    # User.create!(:username => 'muazzam', :password => '456')
+    
+    @c1 = Course.create! ({:code => "CS300", :instructor => "Shayan",
+        :stime => Time.now, :etime => Time.now, days: "Monday Tuesday ", venue: "Auditorium A-2"})

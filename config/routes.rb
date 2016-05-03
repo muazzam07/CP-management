@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get       'users/course/delseatingplan', :to => 'course#delseatingplan'
   get       'users/course/markclass', :to => 'course#markclass'
   
-  
   #get    'manageCourse' => 'users#manageCourse'
   #get    'editcourse'   => 'users#editcourse'
   #et    'seatingplan'  => 'users#seatingplan'
