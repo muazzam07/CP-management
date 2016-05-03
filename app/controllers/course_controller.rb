@@ -65,7 +65,7 @@ class CourseController < ApplicationController
         end
         flash[:notice] = "Course Added"
         #----
-        # redirect_to userpage_path
+        redirect_to userpage_path
     end
     
     def managecourse
@@ -97,13 +97,13 @@ class CourseController < ApplicationController
     
     def delcourse
         if session[:username].nil?
-            redirect_to login_path and return
+            redirect_to login_path #and return
         end
             @course_code = params[:course_id]
             @course = Course.find_by_code(@course_code)
             @course.delete
             #--
-            redirect_to userpage_path(:notice => 'Course Deleted') and return
+            redirect_to userpage_path(:notice => 'Course Deleted') #and return
     end
     
     def seatingplan
